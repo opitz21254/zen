@@ -1,0 +1,51 @@
+{
+  "manifest_version": 2,
+  "name": "Space Freeze",
+  "version": "1.0.0",
+  "description": "Locks the address of tabs pinned in a Zen space. Navigations open in a new general tab.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "space-freeze@zen",
+      "strict_min_version": "128.0"
+    }
+  },
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "contextualIdentities",
+    "cookies",
+    "contextMenus",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["logic.js", "background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["logic.js", "content.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["page-hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": false
+    }
+  ],
+  "browser_action": {
+    "default_title": "Space Freeze",
+    "default_popup": "popup.html",
+    "default_icon": "icon.svg"
+  },
+  "icons": {
+    "48": "icon.svg",
+    "96": "icon.svg"
+  },
+  "incognito": "spanning"
+}

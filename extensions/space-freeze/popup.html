@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Space Freeze</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Space Freeze</h1>
+      <p>
+        Pinned tabs stay on their address. Links and page navigations open as a
+        new tab in the general list.
+      </p>
+    </header>
+    <label class="master">
+      <input id="enabled" type="checkbox" />
+      <span>Freeze pinned tabs</span>
+    </label>
+    <section>
+      <h2>Spaces</h2>
+      <p class="hint">
+        A space with its own profile has its own switch. Spaces on the default
+        profile share the default switch.
+      </p>
+      <div id="containers"></div>
+    </section>
+    <section>
+      <h2>Pinned tabs</h2>
+      <div id="tabs"></div>
+    </section>
+    <script src="logic.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
